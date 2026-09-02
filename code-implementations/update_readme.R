@@ -3,7 +3,7 @@ library(dplyr)
 library(glue)
 library(scales)
 
-df <- read_csv("parcourt.csv")
+df <- read.csv("parcourt.csv")
 
 df <- df %>%
   mutate(
