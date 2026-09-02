@@ -25,17 +25,6 @@ The workspace is structured into the following operational directories:
 * `cheatsheets/` — Consolidated, high-density reference guides outlining core formulas.
 * `soa-samples/` — Comprehensive solutions to official SOA sample examination problems.
 
----
+<!-- PROGRESS_BLOCK -->
 
-## 📈 Syllabus Tracking Dashboard
 
-| Exam Syllabus Topic | Status | Associated Artifacts |
-| :--- | :---: | :--- |
-| **0. Introduction and Review** | 🟡 In Progress | `summaries/00_review.md` |
-| **1. Basics of Statistical Learning (5-10%)** | 🔴 Not Started | *Pending* |
-| **2. Linear Models (40-50%)** | 🔴 Not Started | *Pending* |
-| **3. Time Series Models (10-15%)** | 🔴 Not Started | *Pending* |
-| **4. Decision Trees (20-25%)** | 🔴 Not Started | *Pending* |
-| **5. Unsupervised Learning Techniques (10-15%)** | 🔴 Not Started | *Pending* |
-
-*Status Indicators: 🟢 Complete | 🟡 In Progress | 🔴 Not Started*
