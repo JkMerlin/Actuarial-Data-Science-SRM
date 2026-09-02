@@ -64,6 +64,39 @@ overall_pct <- overall_completed / overall_total
 
 weighted_progress <- sum(progress$weighted, na.rm = TRUE)
 
+# ============================================================
+# Study Priorities
+# ============================================================
+
+priority <- progress %>%
+  filter(Total > 0, pct < 1) %>%
+  arrange(desc(weight), pct) %>%
+  slice_head(n = 3)
+
+progress_block <- c(
+  progress_block,
+  "### 🎯 Current Study Priorities",
+  ""
+)
+
+for (i in seq_len(nrow(priority))) {
+  progress_block <- c(
+    progress_block,
+    paste0(
+      i, ". **", priority$Section[i], "** — ",
+      priority$Completed[i], " / ", priority$Total[i],
+      " completed (",
+      percent(priority$pct[i], accuracy = 0.1),
+      ")"
+    )
+  )
+}
+
+progress_block <- c(
+  progress_block,
+  ""
+)
+
 # ------------------------------------------------------------
 # Progress bar
 # ------------------------------------------------------------
