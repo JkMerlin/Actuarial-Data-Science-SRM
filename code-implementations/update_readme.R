@@ -85,8 +85,7 @@ progress_bar <- function(pct, width = 20) {
 # ------------------------------------------------------------
 
 progress_block <- c(
-  "## 📊 Automated Progress Summary",
-  "",
+    "",
   paste0(
     "**Overall Reading Progress:** ",
     percent(overall_pct, accuracy = 0.1)
@@ -189,7 +188,6 @@ start <- match(start_marker, readme)
 end <- match(end_marker, readme)
 
 if (is.na(start) || is.na(end)) {
-  
   stop(
     paste0(
       "README.md must contain both:\n",
@@ -201,10 +199,10 @@ if (is.na(start) || is.na(end)) {
 }
 
 if (start >= end) {
-  stop("Invalid README progress markers.")
+  stop("Invalid README markers.")
 }
 
-# Replace everything between the markers
+# Replace content between markers
 readme <- c(
   readme[1:start],
   progress_block,
@@ -213,15 +211,26 @@ readme <- c(
 
 writeLines(
   readme,
-  "README.md"
+  "README.md",
+  useBytes = TRUE
 )
 
+# ------------------------------------------------------------
+# Verify
+# ------------------------------------------------------------
+
+cat("\nREADME updated successfully!\n")
+cat("Overall reading progress: ",
+    percent(overall_pct, accuracy = 0.1), "\n", sep = "")
+
+cat("Exam-weighted progress: ",
+    percent(weighted_progress, accuracy = 0.1), "\n", sep = "")
+
+cat("\nREADME progress section:\n")
 cat(
-  "\nREADME updated successfully!\n",
-  "Overall reading progress: ",
-  percent(overall_pct, accuracy = 0.1),
-  "\nExam-weighted progress: ",
-  percent(weighted_progress, accuracy = 0.1),
-  "\n",
-  sep = ""
+  paste(
+    readme[start:min(end + 20, length(readme))],
+    collapse = "\n"
+  )
 )
+cat("\n")

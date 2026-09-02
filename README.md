@@ -28,5 +28,36 @@ The workspace is structured into the following operational directories:
 ## 📊 Automated Progress Summary
 
 <!-- AUTO_PROGRESS_START -->
+## 📊 Automated Progress Summary
 
+**Overall Reading Progress:** 11.2%
+
+`██░░░░░░░░░░░░░░░░░░ 11.2%`
+
+**Exam-Weighted Reading Progress:** 3.0%
+
+| SRM Topic | Completed | Total | Progress | Exam Weight |
+|---|---:|---:|---:|---:|
+| Basics of Statistical Learning 5-10% | 6 | 20 | 30.0% | 10.0% |
+| Decision Trees 20-25% | 0 | 11 | 0.0% | 22.5% |
+| Introduction and Review 0% | 10 | 10 | 100.0% | 0.0% |
+| Linear Models 40-50% | 0 | 70 | 0.0% | 45.0% |
+| Time Series Models 10-15% | 0 | 18 | 0.0% | 12.5% |
+| Unsupervised Learning Techniques 10-15% | 0 | 14 | 0.0% | 12.5% |
+
+### Topic Progress
+
+**Basics of Statistical Learning 5-10%**  `██████░░░░░░░░░░░░░░ 30.0%`
+
+**Decision Trees 20-25%**  `░░░░░░░░░░░░░░░░░░░░ 0.0%`
+
+**Introduction and Review 0%**  `████████████████████ 100.0%`
+
+**Linear Models 40-50%**  `░░░░░░░░░░░░░░░░░░░░ 0.0%`
+
+**Time Series Models 10-15%**  `░░░░░░░░░░░░░░░░░░░░ 0.0%`
+
+**Unsupervised Learning Techniques 10-15%**  `░░░░░░░░░░░░░░░░░░░░ 0.0%`
+
+*Last updated: September 01, 2026 at 10:15 PM*
 <!-- AUTO_PROGRESS_END -->
