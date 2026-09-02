@@ -27,6 +27,6 @@ The workspace is structured into the following operational directories:
 
 ## 📊 Automated Progress Summary
 
-- **Basics of Statistical Learning**: 14.3% complete (weighted: 1.4%)- **Linear Models**: 0.0% complete (weighted: 0.0%)- **Time Series Models**: 0.0% complete (weighted: 0.0%)- **Decision Trees**: 0.0% complete (weighted: 0.0%)- **Unsupervised Learning**: NA complete (weighted: NA)
+<!-- AUTO_PROGRESS_START -->
 
-
+<!-- AUTO_PROGRESS_END -->
