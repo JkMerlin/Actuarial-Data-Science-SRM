@@ -3,7 +3,7 @@ library(dplyr)
 library(glue)
 
 # Load syllabus
-df <- read_excel("C:\\sers\\merlin\\Desktop\\del\\syl.xlsx")
+df <- read_excel("parcourt.xlsx")
 
 # Rename columns for clarity
 df <- df %>% 
