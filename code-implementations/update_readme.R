@@ -10,7 +10,7 @@ df <- df %>%
   mutate(Status = Completed / Total)
 
 weights <- c(
-  "Introduction and Review 0%"=0.00.
+  "Introduction and Review 0%"=0.00,
   "Basics of Statistical Learning 5-10%" = 0.10,
   "Linear Models 40-50%" = 0.45,
   "Time Series Models 10-15%" = 0.125,
