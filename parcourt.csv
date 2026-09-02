@@ -1,70 +1,70 @@
 Section,Subsection,Source Reading,Total,Completed
 Introduction and Review 0%,R Programming,TBD,0,0
-,Assumed Knowledge and Review,"Frees 1.1, 1.2, 1.3, 1.4, 1.5, 2.1",6,6
-,Matrix Algebra,"Frees 2.11, 3.2.3",2,2
-,Maximum Likelihood Estimation,"Frees 11.9, GPT-4o",2,2
+Introduction and Review 0%,Assumed Knowledge and Review,"Frees 1.1, 1.2, 1.3, 1.4, 1.5, 2.1",6,6
+Introduction and Review 0%,Matrix Algebra,"Frees 2.11, 3.2.3",2,2
+Introduction and Review 0%,Maximum Likelihood Estimation,"Frees 11.9, GPT-4o",2,2
 Basics of Statistical Learning  5-10%,Input and Output Variables,"ISLR 2.1, 3.3.2, Frees 1.5, 3.5",4,2
-,Prediction and Inference,ISLR 2.1.1,1,1
-,Parametric Methods,ISLR 2.1.2,1,1
-,Non-Parametric Methods,"ISLR 2.1.2, 2.1.3",2,2
-,Supervised vs Unsupervised Learning,ISLR 2.1.4,1,0
-,Regression vs Classification,ISLR 2.1.5,1,0
-,Mean Squared Error,"ISLR 2.2.1, 2.2.3",2,0
-,Bias-Variance Tradeoff,"ISLR 2.2.2, Frees 6.2, Wikipedia",2,0
-,Data Collection,"ISLR 6.4, Frees 6.3, GPT-4o",2,0
-,Bayes Classifier,ISLR 2.2.3,1,0
-,K-Nearest Neighbors,ISLR 2.2.3,1,0
-,The Validation Set Approach,"ISLR 5.1.1, Frees 5.6.2",2,0
+Basics of Statistical Learning  5-10%,Prediction and Inference,ISLR 2.1.1,1,1
+Basics of Statistical Learning  5-10%,Parametric Methods,ISLR 2.1.2,1,1
+Basics of Statistical Learning  5-10%,Non-Parametric Methods,"ISLR 2.1.2, 2.1.3",2,2
+Basics of Statistical Learning  5-10%,Supervised vs Unsupervised Learning,ISLR 2.1.4,1,0
+Basics of Statistical Learning  5-10%,Regression vs Classification,ISLR 2.1.5,1,0
+Basics of Statistical Learning  5-10%,Mean Squared Error,"ISLR 2.2.1, 2.2.3",2,0
+Basics of Statistical Learning  5-10%,Bias-Variance Tradeoff,"ISLR 2.2.2, Frees 6.2, Wikipedia",2,0
+Basics of Statistical Learning  5-10%,Data Collection,"ISLR 6.4, Frees 6.3, GPT-4o",2,0
+Basics of Statistical Learning  5-10%,Bayes Classifier,ISLR 2.2.3,1,0
+Basics of Statistical Learning  5-10%,K-Nearest Neighbors,ISLR 2.2.3,1,0
+Basics of Statistical Learning  5-10%,The Validation Set Approach,"ISLR 5.1.1, Frees 5.6.2",2,0
 Linear Models 40-50%,Leave-One-Out Cross-Validation,"ISLR 5.1, 5.1.2, 5.1.5, Frees 5.6.3",4,0
-,K-Fold Cross-Validation,"ISLR 5.1.3, 5.1.4",2,0
-,Simple Linear Regression,"ISLR 3.1, 3.1.1, 3.1.2, Frees 2.1, 2.2",5,0
-,Bias and Standard Error,"ISLR 3.1.2, Frees 2.3.2, 2.4",3,0
-,Sum of Squares and R-Squared,"ISLR 3.1.3, Frees 2.3.1, 3.3",3,0
-,The t-Test,"ISLR 3.1.2, Frees 2.5, 2.5.1, 3.4,
+Linear Models 40-50%,K-Fold Cross-Validation,"ISLR 5.1.3, 5.1.4",2,0
+Linear Models 40-50%,Simple Linear Regression,"ISLR 3.1, 3.1.1, 3.1.2, Frees 2.1, 2.2",5,0
+Linear Models 40-50%,Bias and Standard Error,"ISLR 3.1.2, Frees 2.3.2, 2.4",3,0
+Linear Models 40-50%,Sum of Squares and R-Squared,"ISLR 3.1.3, Frees 2.3.1, 3.3",3,0
+Linear Models 40-50%,The t-Test,"ISLR 3.1.2, Frees 2.5, 2.5.1, 3.4,
 3.4.1, GPT-4o",5,0
-,Confidence and Prediction Interval,"ISLR 3.1.2, Frees 2.5.2, 2.5.3, 3.4.2,
+Linear Models 40-50%,Confidence and Prediction Interval,"ISLR 3.1.2, Frees 2.5.2, 2.5.3, 3.4.2,
 3.4.3, 3.4.4, 6.1.2",7,0
-,Multiple Linear Regression,"ISLR 3.2, 3.2.1, Frees 3.1, 3.2, 3.3",5,0
-,The F-Test,ISLR 3.2.2,1,0
-,ANOVA,"Frees 2.3.2, 3.3",2,0
-,Subset Selection,"ISLR 3.2.2, 6.1, 6.1.1, 6.1.2, Frees 5.2",5,0
-,Choosing the Best Model,"ISLR 6.1.3, Frees 5.6.1",2,0
-,Residual Analysis,"Frees 2.6, 5.3",2,0
-,Influential Points,"Frees 2.6, 5.4",2,0
-,Collinearity,"Frees 5.5, 6.1.1",2,0
-,Heteroscedasticity,Frees 5.7,1,0
-,Ridge Regression,ISLR 6.2.1,1,0
-,The Lasso,"ISLR 6.2.2, 6.2.3",2,0
-,Binary Dependent Variables,"ISLR 3.3.1, Frees 11.1",2,0
-,Logit and Probit Models,"Frees 11.2, 11.3, Wikipedia",2,0
-,Nominal Dependent Variables,"ISLR 3.3.1, Frees 11.5, External",3,0
-,Ordinal Dependent Variables,Frees 11.6,1,0
-,Poisson Regression,Frees 12.1,1,0
-,Other Count Models,"Frees 12.3, 12.4",2,0
-,Generalized Linear Models,"Frees 13.1, 13.2, 13.6",3,0
-,Estimation in GLMs,"Frees 13.3, 13.5",2,0
+Linear Models 40-50%,Multiple Linear Regression,"ISLR 3.2, 3.2.1, Frees 3.1, 3.2, 3.3",5,0
+Linear Models 40-50%,The F-Test,ISLR 3.2.2,1,0
+Linear Models 40-50%,ANOVA,"Frees 2.3.2, 3.3",2,0
+Linear Models 40-50%,Subset Selection,"ISLR 3.2.2, 6.1, 6.1.1, 6.1.2, Frees 5.2",5,0
+Linear Models 40-50%,Choosing the Best Model,"ISLR 6.1.3, Frees 5.6.1",2,0
+Linear Models 40-50%,Residual Analysis,"Frees 2.6, 5.3",2,0
+Linear Models 40-50%,Influential Points,"Frees 2.6, 5.4",2,0
+Linear Models 40-50%,Collinearity,"Frees 5.5, 6.1.1",2,0
+Linear Models 40-50%,Heteroscedasticity,Frees 5.7,1,0
+Linear Models 40-50%,Ridge Regression,ISLR 6.2.1,1,0
+Linear Models 40-50%,The Lasso,"ISLR 6.2.2, 6.2.3",2,0
+Linear Models 40-50%,Binary Dependent Variables,"ISLR 3.3.1, Frees 11.1",2,0
+Linear Models 40-50%,Logit and Probit Models,"Frees 11.2, 11.3, Wikipedia",2,0
+Linear Models 40-50%,Nominal Dependent Variables,"ISLR 3.3.1, Frees 11.5, External",3,0
+Linear Models 40-50%,Ordinal Dependent Variables,Frees 11.6,1,0
+Linear Models 40-50%,Poisson Regression,Frees 12.1,1,0
+Linear Models 40-50%,Other Count Models,"Frees 12.3, 12.4",2,0
+Linear Models 40-50%,Generalized Linear Models,"Frees 13.1, 13.2, 13.6",3,0
+Linear Models 40-50%,Estimation in GLMs,"Frees 13.3, 13.5",2,0
 Time Series Models 10-15%,Introduction to Time Series,"Frees 6.1.1, 7.1, 7.2",3,0
-,Stationarity,"Frees 7.3, 7.4, 7.5",3,0
-,Forecast Evaluation,Frees 7.6,1,0
-,Autoregressive Models,"Frees 8.1, 8.2, 8.3, 8.4",4,0
-,Smoothing,"Frees 9.1, 9.2",2,0
-,Exponential Smoothing,Frees 9.2,1,0
-,Seasonal Adjustments,Frees 9.3,1,0
-,Unit Root Test,Frees 9.4,1,0
-,ARCH and GARCH Models,"Frees 9.5, External",2,0
+Time Series Models 10-15%,Stationarity,"Frees 7.3, 7.4, 7.5",3,0
+Time Series Models 10-15%,Forecast Evaluation,Frees 7.6,1,0
+Time Series Models 10-15%,Autoregressive Models,"Frees 8.1, 8.2, 8.3, 8.4",4,0
+Time Series Models 10-15%,Smoothing,"Frees 9.1, 9.2",2,0
+Time Series Models 10-15%,Exponential Smoothing,Frees 9.2,1,0
+Time Series Models 10-15%,Seasonal Adjustments,Frees 9.3,1,0
+Time Series Models 10-15%,Unit Root Test,Frees 9.4,1,0
+Time Series Models 10-15%,ARCH and GARCH Models,"Frees 9.5, External",2,0
 Decision Trees 20-25%,Introduction to Decision Trees,"ISLR 8.1, GPT-4o",2,0
-,Regression Trees,ISLR 8.1.1,1,0
-,Binary Splitting,ISLR 8.1.1,1,0
-,Pruning,ISLR 8.1.1,1,0
-,Classification Trees,ISLR 8.1.2,1,0
-,Trees vs Linear Models,"ISLR 8.1.3, 8.1.4",2,0
-,Bagging,ISLR 8.2.1,1,0
-,Random Forests,ISLR 8.2.2,1,0
-,Boosting,ISLR 8.2.3,1,0
+Decision Trees 20-25%,Regression Trees,ISLR 8.1.1,1,0
+Decision Trees 20-25%,Binary Splitting,ISLR 8.1.1,1,0
+Decision Trees 20-25%,Pruning,ISLR 8.1.1,1,0
+Decision Trees 20-25%,Classification Trees,ISLR 8.1.2,1,0
+Decision Trees 20-25%,Trees vs Linear Models,"ISLR 8.1.3, 8.1.4",2,0
+Decision Trees 20-25%,Bagging,ISLR 8.2.1,1,0
+Decision Trees 20-25%,Random Forests,ISLR 8.2.2,1,0
+Decision Trees 20-25%,Boosting,ISLR 8.2.3,1,0
 Unsupervised Learning Techniques 10-15%,Introduction to Unsupervised Learning,ISLR 12.1,1,0
-,Principal Components Regression,"ISLR 6.3, 6.3.1, 6.3.2",3,0
-,Principal Components Analysis,"ISLR 12.2, 12.2.1, 12.2.2, 12.2.4,
+Unsupervised Learning Techniques 10-15%,Principal Components Regression,"ISLR 6.3, 6.3.1, 6.3.2",3,0
+Unsupervised Learning Techniques 10-15%,Principal Components Analysis,"ISLR 12.2, 12.2.1, 12.2.2, 12.2.4,
 12.2.5",5,0
-,Clustering,"ISLR 2.1.4, 12.4, 12.4.3",3,0
-,K-Means Clustering,ISLR 12.4.1,1,0
-,Hierarchical Clustering,ISLR 12.4.2,1,0
+Unsupervised Learning Techniques 10-15%,Clustering,"ISLR 2.1.4, 12.4, 12.4.3",3,0
+Unsupervised Learning Techniques 10-15%,K-Means Clustering,ISLR 12.4.1,1,0
+Unsupervised Learning Techniques 10-15%,Hierarchical Clustering,ISLR 12.4.2,1,0

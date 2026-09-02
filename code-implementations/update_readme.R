@@ -3,17 +3,14 @@ library(dplyr)
 library(glue)
 library(scales)
 
-df <- read.csv("parcourt.csv")
+df <- read.csv("parcourt.csv", stringsAsFactors = FALSE)
 
 df <- df %>%
-  mutate(
-    Section = ifelse(!is.na(Section), Section, NA),
-    Section = zoo::na.locf(Section)  # fill down section names
-  ) %>%
-  filter(!is.na(Total)) %>%   # only rows with numeric data
+    filter(!is.na(Total)) %>%   # only rows with numeric data
   mutate(Status = Completed / Total)
 
 weights <- c(
+  "Introduction and Review 0%"=0.00.
   "Basics of Statistical Learning 5-10%" = 0.10,
   "Linear Models 40-50%" = 0.45,
   "Time Series Models 10-15%" = 0.125,
