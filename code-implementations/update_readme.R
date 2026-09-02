@@ -3,25 +3,22 @@ library(dplyr)
 library(glue)
 library(scales)
 
-df <- read_excel("parcourt.xlsx")
+df <- read_csv("parcourt.csv")
 
 df <- df %>%
-  rename(
-    Section = 1,
-    Subsection = 2,
-    Source = 3,
-    Total = 4,
-    Completed = 5
+  mutate(
+    Section = ifelse(!is.na(Section), Section, NA),
+    Section = zoo::na.locf(Section)  # fill down section names
   ) %>%
-  filter(!is.na(Total)) %>%   # remove header/empty rows
+  filter(!is.na(Total)) %>%   # only rows with numeric data
   mutate(Status = Completed / Total)
 
 weights <- c(
-  "Basics of Statistical Learning (10-15%)" = 0.10,
-  "Linear Models (40-50%)" = 0.45,
-  "Time Series Models (10-15%)" = 0.125,
-  "Decision Trees (20-25%)" = 0.225,
-  "Unsupervised Learning Techniques (10-15%)" = 0.125
+  "Basics of Statistical Learning 5-10%" = 0.10,
+  "Linear Models 40-50%" = 0.45,
+  "Time Series Models 10-15%" = 0.125,
+  "Decision Trees 20-25%" = 0.225,
+  "Unsupervised Learning Techniques 10-15%" = 0.125
 )
 
 progress <- df %>%
