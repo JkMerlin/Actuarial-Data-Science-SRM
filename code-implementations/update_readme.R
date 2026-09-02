@@ -1,65 +1,46 @@
 library(readxl)
 library(dplyr)
 library(glue)
+library(scales)
 
-# Load syllabus
-df <- read_excel("parcourt.xlsx")
+df <- read_excel("syl.xlsx")
 
-# Rename columns for clarity
-df <- df %>% 
+df <- df %>%
   rename(
     Section = 1,
     Subsection = 2,
     Source = 3,
     Total = 4,
     Completed = 5
-  ) %>% 
+  ) %>%
+  filter(!is.na(Total)) %>%   # remove header/empty rows
   mutate(Status = Completed / Total)
 
-# Define SRM exam sections with row ranges + weights
-sections <- list(
-  "Basics of Statistical Learning" = list(rows = 7:18, weight = 0.10),
-  "Linear Models" = list(rows = 19:48, weight = 0.45),
-  "Time Series Models" = list(rows = 49:63, weight = 0.125),
-  "Decision Trees" = list(rows = 64:74, weight = 0.225),
-  "Unsupervised Learning" = list(rows = 75:86, weight = 0.125)
+weights <- c(
+  "Basics of Statistical Learning (10-15%)" = 0.10,
+  "Linear Models (40-50%)" = 0.45,
+  "Time Series Models (10-15%)" = 0.125,
+  "Decision Trees (20-25%)" = 0.225,
+  "Unsupervised Learning Techniques (10-15%)" = 0.125
 )
 
-# Compute progress
-progress <- lapply(names(sections), function(name) {
-  rows <- sections[[name]]$rows
-  weight <- sections[[name]]$weight
-  
-  total <- sum(df$Total[rows], na.rm = TRUE)
-  done <- sum(df$Completed[rows], na.rm = TRUE)
-  
-  pct <- done / total
-  weighted <- pct * weight
-  
-  list(
-    name = name,
-    pct = pct,
-    weighted = weighted
-  )
-})
+progress <- df %>%
+  group_by(Section) %>%
+  summarise(
+    pct = sum(Completed, na.rm = TRUE) / sum(Total, na.rm = TRUE)
+  ) %>%
+  mutate(weighted = pct * weights[Section])
 
-# Build README block
 progress_block <- "## 📊 Automated Progress Summary\n\n"
 
-for (p in progress) {
+for (i in 1:nrow(progress)) {
   progress_block <- paste0(
     progress_block,
-    glue("- **{p$name}**: {scales::percent(p$pct, accuracy = 0.1)} complete (weighted: {scales::percent(p$weighted, accuracy = 0.1)})\n")
+    glue("- **{progress$Section[i]}**: {percent(progress$pct[i], accuracy = 0.1)} complete (weighted: {percent(progress$weighted[i], accuracy = 0.1)})\n")
   )
 }
 
-# Read README
 readme <- readLines("README.md")
-
-# Replace placeholder
 start <- grep("<!-- PROGRESS_BLOCK -->", readme)
-
 readme[start] <- progress_block
-
-# Write updated README
 writeLines(readme, "README.md")
