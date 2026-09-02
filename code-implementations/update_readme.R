@@ -6,13 +6,8 @@ library(scales)
 # SOA SRM Automated Progress Tracker
 # ============================================================
 
-# Read study progress data
-df <- read.csv(
-  "parcourt.csv",
-  stringsAsFactors = FALSE
-)
+df <- read.csv("parcourt.csv", stringsAsFactors = FALSE)
 
-# Clean data
 df <- df %>%
   mutate(
     Section = trimws(gsub("\\s+", " ", Section)),
@@ -21,23 +16,22 @@ df <- df %>%
   ) %>%
   filter(!is.na(Total), Total > 0)
 
-# ------------------------------------------------------------
-# Exam topic weights
-# Using midpoint of published ranges
-# ------------------------------------------------------------
+# ============================================================
+# Exam Topic Weights
+# ============================================================
 
 weights <- c(
   "Introduction and Review 0%" = 0.00,
-  "Basics of Statistical Learning 5-10%" = 0.1,
+  "Basics of Statistical Learning 5-10%" = 0.10,
   "Linear Models 40-50%" = 0.45,
   "Time Series Models 10-15%" = 0.125,
   "Decision Trees 20-25%" = 0.225,
   "Unsupervised Learning Techniques 10-15%" = 0.125
 )
 
-# ------------------------------------------------------------
-# Calculate topic-level progress
-# ------------------------------------------------------------
+# ============================================================
+# Calculate Progress
+# ============================================================
 
 progress <- df %>%
   group_by(Section) %>%
@@ -52,54 +46,15 @@ progress <- df %>%
     weighted = pct * weight
   )
 
-# ------------------------------------------------------------
-# Overall progress
-# ------------------------------------------------------------
-
 overall_total <- sum(progress$Total)
-
 overall_completed <- sum(progress$Completed)
-
 overall_pct <- overall_completed / overall_total
 
 weighted_progress <- sum(progress$weighted, na.rm = TRUE)
 
 # ============================================================
-# Study Priorities
+# Progress Bar Function
 # ============================================================
-
-priority <- progress %>%
-  filter(Total > 0, pct < 1) %>%
-  arrange(desc(weight), pct) %>%
-  slice_head(n = 3)
-
-progress_block <- c(
-  progress_block,
-  "### 🎯 Current Study Priorities",
-  ""
-)
-
-for (i in seq_len(nrow(priority))) {
-  progress_block <- c(
-    progress_block,
-    paste0(
-      i, ". **", priority$Section[i], "** — ",
-      priority$Completed[i], " / ", priority$Total[i],
-      " completed (",
-      percent(priority$pct[i], accuracy = 0.1),
-      ")"
-    )
-  )
-}
-
-progress_block <- c(
-  progress_block,
-  ""
-)
-
-# ------------------------------------------------------------
-# Progress bar
-# ------------------------------------------------------------
 
 progress_bar <- function(pct, width = 20) {
   
@@ -113,22 +68,26 @@ progress_bar <- function(pct, width = 20) {
   )
 }
 
-# ------------------------------------------------------------
-# Build README progress block
-# ------------------------------------------------------------
+# ============================================================
+# Study Priorities
+# ============================================================
+
+priority <- progress %>%
+  filter(Total > 0, pct < 1) %>%
+  arrange(desc(weight), pct) %>%
+  slice_head(n = 3)
+
+# ============================================================
+# Build README Dashboard
+# ============================================================
 
 progress_block <- c(
-    "",
   paste0(
     "**Overall Reading Progress:** ",
     percent(overall_pct, accuracy = 0.1)
   ),
   "",
-  paste0(
-    "`",
-    progress_bar(overall_pct),
-    "`"
-  ),
+  paste0("`", progress_bar(overall_pct), "`"),
   "",
   paste0(
     "**Exam-Weighted Reading Progress:** ",
@@ -139,9 +98,9 @@ progress_block <- c(
   "|---|---:|---:|---:|---:|"
 )
 
-# ------------------------------------------------------------
-# Add topic rows
-# ------------------------------------------------------------
+# ============================================================
+# Topic Progress Table
+# ============================================================
 
 for (i in seq_len(nrow(progress))) {
   
@@ -150,24 +109,19 @@ for (i in seq_len(nrow(progress))) {
   progress_block <- c(
     progress_block,
     paste0(
-      "| ",
-      section,
-      " | ",
-      progress$Completed[i],
-      " | ",
-      progress$Total[i],
-      " | ",
-      percent(progress$pct[i], accuracy = 0.1),
-      " | ",
-      percent(progress$weight[i], accuracy = 0.1),
+      "| ", section,
+      " | ", progress$Completed[i],
+      " | ", progress$Total[i],
+      " | ", percent(progress$pct[i], accuracy = 0.1),
+      " | ", percent(progress$weight[i], accuracy = 0.1),
       " |"
     )
   )
 }
 
-# ------------------------------------------------------------
-# Add visual topic progress
-# ------------------------------------------------------------
+# ============================================================
+# Topic Progress Bars
+# ============================================================
 
 progress_block <- c(
   progress_block,
@@ -181,23 +135,45 @@ for (i in seq_len(nrow(progress))) {
   progress_block <- c(
     progress_block,
     paste0(
-      "**",
-      progress$Section[i],
-      "**  ",
-      "`",
-      progress_bar(progress$pct[i]),
-      "`"
+      "**", progress$Section[i], "**  ",
+      "`", progress_bar(progress$pct[i]), "`"
     ),
     ""
   )
 }
 
-# ------------------------------------------------------------
-# Timestamp
-# ------------------------------------------------------------
+# ============================================================
+# Current Study Priorities
+# ============================================================
 
 progress_block <- c(
   progress_block,
+  "### 🎯 Current Study Priorities",
+  ""
+)
+
+for (i in seq_len(nrow(priority))) {
+  
+  progress_block <- c(
+    progress_block,
+    paste0(
+      i, ". **", priority$Section[i], "** — ",
+      priority$Completed[i], " / ",
+      priority$Total[i],
+      " completed (",
+      percent(priority$pct[i], accuracy = 0.1),
+      ")"
+    )
+  )
+}
+
+# ============================================================
+# Last Updated
+# ============================================================
+
+progress_block <- c(
+  progress_block,
+  "",
   paste0(
     "*Last updated: ",
     format(Sys.time(), "%B %d, %Y at %I:%M %p"),
@@ -205,14 +181,11 @@ progress_block <- c(
   )
 )
 
-# ------------------------------------------------------------
+# ============================================================
 # Update README
-# ------------------------------------------------------------
+# ============================================================
 
-readme <- readLines(
-  "README.md",
-  warn = FALSE
-)
+readme <- readLines("README.md", warn = FALSE)
 
 start_marker <- "<!-- AUTO_PROGRESS_START -->"
 end_marker <- "<!-- AUTO_PROGRESS_END -->"
@@ -221,21 +194,19 @@ start <- match(start_marker, readme)
 end <- match(end_marker, readme)
 
 if (is.na(start) || is.na(end)) {
-  stop(
-    paste0(
-      "README.md must contain both:\n",
-      start_marker,
-      "\n",
-      end_marker
-    )
-  )
+  
+  stop(paste0(
+    "README.md must contain both:\n",
+    start_marker,
+    "\n",
+    end_marker
+  ))
 }
 
 if (start >= end) {
   stop("Invalid README markers.")
 }
 
-# Replace content between markers
 readme <- c(
   readme[1:start],
   progress_block,
@@ -248,22 +219,16 @@ writeLines(
   useBytes = TRUE
 )
 
-# ------------------------------------------------------------
-# Verify
-# ------------------------------------------------------------
+# ============================================================
+# Console Output
+# ============================================================
 
-cat("\nREADME updated successfully!\n")
-cat("Overall reading progress: ",
-    percent(overall_pct, accuracy = 0.1), "\n", sep = "")
-
-cat("Exam-weighted progress: ",
-    percent(weighted_progress, accuracy = 0.1), "\n", sep = "")
-
-cat("\nREADME progress section:\n")
 cat(
-  paste(
-    readme[start:min(end + 20, length(readme))],
-    collapse = "\n"
-  )
+  "\nREADME updated successfully!\n",
+  "Overall reading progress: ",
+  percent(overall_pct, accuracy = 0.1),
+  "\nExam-weighted reading progress: ",
+  percent(weighted_progress, accuracy = 0.1),
+  "\n",
+  sep = ""
 )
-cat("\n")
